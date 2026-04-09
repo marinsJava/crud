@@ -1,0 +1,10 @@
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('John Doe', '123.456.789-00', 5000.00, '1980-01-01', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Jane Smith', '987.654.321-00', 7000.00, '1990-05-15', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Alice Johnson', '111.222.333-44', 6000.00, '1985-10-20', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Bob Brown', '555.666.777-88', 4500.00, '1975-03-30', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Charlie Davis', '999.888.777-66', 8000.00, '1995-07-10', 4);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Emily Wilson', '222.333.444-55', 5500.00, '1988-12-25', 2);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Frank Miller', '666.777.888-99', 4000.00, '1970-09-05', 1);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Grace Lee', '333.444.555-66', 7500.00, '1992-11-30', 3);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Henry Taylor', '777.888.999-00', 6500.00, '1983-04-18', 0);
+INSERT INTO tb_client(name, cpf, income, birth_date, children) VALUES ('Isabella Anderson', '444.555.666-77', 9000.00, '1998-02-14', 2);
