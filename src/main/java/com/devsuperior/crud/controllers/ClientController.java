@@ -1,6 +1,7 @@
 package com.devsuperior.crud.controllers;
 
 import com.devsuperior.crud.dto.ClientDTO;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,13 +30,13 @@ public class ClientController {
     }
 
     @PostMapping
-    public ResponseEntity<ClientDTO> insert(@RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> insert(@Valid @RequestBody ClientDTO dto) {
         dto = service.insert(dto);
         return ResponseEntity.ok(dto);
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> findByid(@PathVariable Long id, @RequestBody ClientDTO dto) {
+    public ResponseEntity<ClientDTO> findByid(@PathVariable Long id,@Valid @RequestBody ClientDTO dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok(dto);
     }

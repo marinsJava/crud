@@ -5,11 +5,13 @@ import com.devsuperior.crud.entities.Client;
 import com.devsuperior.crud.repositories.ClientRepository;
 import com.devsuperior.crud.services.exceptions.DatabaseException;
 import com.devsuperior.crud.services.exceptions.ResourceNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -29,7 +31,7 @@ public class ClientService {
         return new ClientDTO(client);
     }
 
-
+    @Transactional
     public ClientDTO insert(ClientDTO dto) {
         Client entity = new Client();
         copyDtoToEntity(dto, entity);
@@ -45,8 +47,8 @@ public class ClientService {
             entity = repository.save(entity);
             return new ClientDTO(entity);
         }
-        catch (Exception e) {
-            throw new RuntimeException("Recurso não encontrado");
+        catch (EntityNotFoundException e) {
+            throw new ResourceNotFoundException("Recurso não encontrado");
         }
     }
 
@@ -59,6 +61,7 @@ public class ClientService {
         entity.setChildren(dto.getChildren());
     }
 
+    @Transactional(propagation = Propagation.SUPPORTS)
     public void delete(Long id) {
         if (!repository.existsById(id)) {
             throw new ResourceNotFoundException("Recurso não encontrado");
